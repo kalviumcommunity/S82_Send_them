@@ -1,15 +1,26 @@
 const express = require("express")
 const cors = require("cors")
+const mongoose = require("mongoose")
 require("dotenv").config()
 const app = express()
-const port = process.env.PORT
 app.use(cors())
 
+const port = process.env.PORT
+
+const connectionString = process.env.DB_URL
+
+mongoose.connect(connectionString)
+  .then(() => console.log('Connected to database'))
+  .catch((err) => console.log('Error connecting to database: ', err));
 app.use(express.json())
 
 app.get('/',(req,res)=>{
+    const isConnected = mongoose.connection.readyState;
+    if(isConnected === 1){
+        return res.status(200).send("Connected to Database");
+    }
+    return res.status(500).send("Could not connect to database")
 
-    res.status(400).send("Hello World");
 })
 
 app.get("/ping",(req,res)=>{
