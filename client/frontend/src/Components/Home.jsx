@@ -7,7 +7,6 @@ function Home() {
 
       
       
-      Hello World !
       <MemeGen></MemeGen>
     </div>
   )
