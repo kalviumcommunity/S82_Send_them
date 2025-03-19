@@ -11,14 +11,6 @@ const UserSchema = new mongoose.Schema({
 
 
     },
-    address:{
-        
-        country:{type:String,required:true},
-        city:{type:String,required:true},
-        address1:{type:String,required:true},
-        address2:{type:String,required:true},
-        pinCode:{type:Number,required:true},
-    },
     role:{type:String,default:"user"},
     createdAt:{type:Date,default:Date.now()},
 
