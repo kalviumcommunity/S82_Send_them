@@ -27,7 +27,7 @@ function Signup() {
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <input type="number" placeholder="NUmber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <button type="submit">Create User</button>
+                <button type="submit">Sign Up</button>
         </form>
       
     </div>
