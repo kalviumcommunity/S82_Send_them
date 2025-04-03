@@ -4,17 +4,16 @@ meta {
   seq: 2
 }
 
-get {
-  url: http://localhost:5000/tasks
+post {
+  url: http://localhost:3010/register
   body: json
   auth: none
 }
 
 body:json {
   {
-   "name":"Hell hotel",
-    "location":"Chennai",
-    "cuisine":"Indian"
+    "email":"Chennai",
+    "password":"Indian"
   
   
   }

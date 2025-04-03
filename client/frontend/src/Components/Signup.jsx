@@ -10,7 +10,7 @@ function Signup() {
     e.preventDefault();
     const userData = {name:name,email:email,phoneNumber:Number(phoneNumber),password:password};
     try{
-        const resp = await fetch("http://localhost:5000/data",{
+        const resp = await fetch("http://localhost:5000/userauth/signup",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(userData),
@@ -25,7 +25,7 @@ function Signup() {
         <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <input type="number" placeholder="NUmber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                <input type="number" placeholder="Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Sign Up</button>
         </form>

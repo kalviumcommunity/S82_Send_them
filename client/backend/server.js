@@ -1,7 +1,10 @@
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
+
 const User = require("./schema")
+const userAuth = require("./userRoute")
+
 require("dotenv").config()
 const app = express()
 app.use(cors())
@@ -19,12 +22,7 @@ app.get('/get-data',async(req,res)=>{
     res.json(users);
 })
 
-app.post('/data',async(req,res)=>{
-    const {name,email,phoneNumber,password} = req.body;
-    const newUser = new User({name:name,email:email,phoneNumber:phoneNumber,password:password})
-    newUser.save().then(()=>console.log(`Created a user entity : ${name}`))
-    .catch((e)=>console.error("Could Not create user",e))
-})
+app.use("/userauth",userAuth)
 
 app.get('/',async (req,res)=>{
     const isConnected = mongoose.connection.readyState;
